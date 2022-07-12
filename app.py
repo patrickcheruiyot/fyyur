@@ -23,9 +23,8 @@ db = SQLAlchemy(app)
 
 # TODO: connect to a local postgresql database
 
-#----------------------------------------------------------------------------#
-# Models.
-#----------------------------------------------------------------------------#
+app.config['SQLALCHEMY_DATABASE_URI']
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS']
 
 class Venue(db.Model):
     __tablename__ = 'Venue'
@@ -38,6 +37,10 @@ class Venue(db.Model):
     phone = db.Column(db.String(120))
     image_link = db.Column(db.String(500))
     facebook_link = db.Column(db.String(120))
+    genres = db.Column(db.String(120))
+    website_link = db.Column(db.String(200))
+    talent = db.Column(db.Boolean, default=False)
+    seeking_desc = db.Column(db.String(500))
 
     # TODO: implement any missing fields, as a database migration using Flask-Migrate
 
